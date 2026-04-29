@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <title>GlamNails - Produits & Commandes</title>
 
-    <!-- FIX: correct path for GitHub Pages -->
+    <!-- CSS path (from /html → /app/css) -->
     <link rel="stylesheet" href="../css/style1.css">
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
 <header class="header">
     <h1 class="logo">💅 GlamNails</h1>
 
@@ -23,119 +22,99 @@
 
 <main>
 
-<!-- ============ CATALOGUE ============ -->
+<!-- ================= CATALOGUE ================= -->
 <section class="section-produits">
+
     <h2>Catalogue de produits</h2>
 
     <p class="intro">
-        Choisissez vos produits, indiquez la quantité puis ajoutez-les à votre commande.
+        Choisissez vos produits et ajoutez-les à votre commande.
     </p>
 
-    <form id="form-commande" action="#" method="post">
+    <form id="form-commande">
 
         <div class="produits-grid">
 
-            <!-- PRODUIT 1 -->
+            <!-- 1 -->
             <article class="produit-card" data-prix="47.88">
-                <div class="produit-image-container">
-                    <img src="images/prod1.jpg" alt="Gel Cover Nude 01">
-                </div>
+                <img src="../images/gel-cover-nude-01.jpg" alt="Gel Cover Nude 01">
                 <h3>Gel Cover Nude 01</h3>
-                <p class="ref">REF : GC001</p>
-                <p class="desc-produit">Gel nude couvrant idéal pour une base naturelle et élégante.</p>
-                <p class="prix-produit">Prix : <span class="prix">47,88</span> DT</p>
+                <p>REF: GC001</p>
+                <p>47,88 DT</p>
 
-                <div class="commande-ligne">
-                    <label>
-                        Qté :
-                        <input type="number" class="quantite" min="1" max="99" value="1">
-                    </label>
-                    <button type="button" class="btn-ajouter">Ajouter</button>
-                </div>
+                <input type="number" class="quantite" value="1" min="1">
+                <button type="button" class="btn-ajouter">Ajouter</button>
             </article>
 
-            <!-- PRODUIT 2 -->
+            <!-- 2 -->
             <article class="produit-card" data-prix="21.48">
-                <div class="produit-image-container">
-                    <img src="images/prod2.jpg" alt="Gel Cover Rose 02">
-                </div>
+                <img src="../images/gel-cover-rose-02.jpg" alt="Gel Cover Rose 02">
                 <h3>Gel Cover Rose 02</h3>
-                <p class="ref">REF : GC002</p>
-                <p class="desc-produit">Gel rose doux pour un effet naturel et lumineux.</p>
-                <p class="prix-produit">Prix : <span class="prix">21,48</span> DT</p>
+                <p>REF: GC002</p>
+                <p>21,48 DT</p>
 
-                <div class="commande-ligne">
-                    <label>
-                        Qté :
-                        <input type="number" class="quantite" min="1" max="99" value="1">
-                    </label>
-                    <button type="button" class="btn-ajouter">Ajouter</button>
-                </div>
+                <input type="number" class="quantite" value="1" min="1">
+                <button type="button" class="btn-ajouter">Ajouter</button>
             </article>
 
-            <!-- PRODUIT 3 -->
+            <!-- 3 -->
             <article class="produit-card" data-prix="29.99">
-                <div class="produit-image-container">
-                    <img src="images/prod3.jpg" alt="Acrygel Ultra Clear">
-                </div>
-                <h3>Acrygel Tube Ultra Clear</h3>
-                <p class="ref">REF : AGF01</p>
-                <p class="desc-produit">Acrygel transparent pour extension solide et brillante.</p>
-                <p class="prix-produit">Prix : <span class="prix">29,99</span> DT</p>
+                <img src="../images/acrygel-tube-ultra-clear.jpg" alt="Acrygel Ultra Clear">
+                <h3>Acrygel Ultra Clear</h3>
+                <p>REF: AGF01</p>
+                <p>29,99 DT</p>
 
-                <div class="commande-ligne">
-                    <label>
-                        Qté :
-                        <input type="number" class="quantite" min="1" max="99" value="1">
-                    </label>
-                    <button type="button" class="btn-ajouter">Ajouter</button>
-                </div>
+                <input type="number" class="quantite" value="1" min="1">
+                <button type="button" class="btn-ajouter">Ajouter</button>
             </article>
 
-            <!-- PRODUITS 4 → 8 (même correction appliquée) -->
-
+            <!-- 4 -->
             <article class="produit-card" data-prix="11.99">
-                <img src="images/prod4.jpg" alt="Rubber Base Rose">
+                <img src="../images/rubber-base-rose.jpg" alt="Rubber Base Rose">
                 <h3>Rubber Base Rose</h3>
-                <p class="ref">REF : RB01</p>
-                <p class="prix-produit">11,99 DT</p>
-                <input type="number" class="quantite" min="1" max="99" value="1">
+                <p>11,99 DT</p>
+
+                <input type="number" class="quantite" value="1" min="1">
                 <button type="button" class="btn-ajouter">Ajouter</button>
             </article>
 
+            <!-- 5 -->
             <article class="produit-card" data-prix="12.99">
-                <img src="images/prod5.jpg" alt="Rubber Base Nude">
+                <img src="../images/rubber-base-nude.jpg" alt="Rubber Base Nude">
                 <h3>Rubber Base Nude</h3>
-                <p class="ref">REF : RB02</p>
-                <p class="prix-produit">12,99 DT</p>
-                <input type="number" class="quantite" min="1" max="99" value="1">
+                <p>12,99 DT</p>
+
+                <input type="number" class="quantite" value="1" min="1">
                 <button type="button" class="btn-ajouter">Ajouter</button>
             </article>
 
+            <!-- 6 -->
             <article class="produit-card" data-prix="13.50">
-                <img src="images/prod6.jpg" alt="Rubber Base White">
+                <img src="../images/rubber-base-white.jpg" alt="Rubber Base White">
                 <h3>Rubber Base White</h3>
-                <p class="ref">REF : RB03</p>
-                <p class="prix-produit">13,50 DT</p>
-                <input type="number" class="quantite" min="1" max="99" value="1">
+                <p>13,50 DT</p>
+
+                <input type="number" class="quantite" value="1" min="1">
                 <button type="button" class="btn-ajouter">Ajouter</button>
             </article>
 
+            <!-- 7 -->
             <article class="produit-card" data-prix="39.90">
-                <img src="images/prod7.jpg" alt="Builder Gel Pink">
+                <img src="../images/builder-gel-pink.jpg" alt="Builder Gel Pink">
                 <h3>Builder Gel Pink</h3>
-                <p class="ref">REF : BG01</p>
-                <p class="prix-produit">39,90 DT</p>
-                <input type="number" class="quantite" min="1" max="99" value="1">
+                <p>39,90 DT</p>
+
+                <input type="number" class="quantite" value="1" min="1">
                 <button type="button" class="btn-ajouter">Ajouter</button>
             </article>
 
+            <!-- 8 -->
             <article class="produit-card" data-prix="42.00">
-                <img src="images/prod8.jpg" alt="Builder Gel Milky">
+                <img src="../images/builder-gel-milky.jpg" alt="Builder Gel Milky">
                 <h3>Builder Gel Milky</h3>
-                <p class="ref">REF : BG02</p>
-                <p class="prix-produit">42,00 DT</p>
-                <input type="number" class="quantite" min="1" max="99" value="1">
+                <p>42,00 DT</p>
+
+                <input type="number" class="quantite" value="1" min="1">
                 <button type="button" class="btn-ajouter">Ajouter</button>
             </article>
 
@@ -143,7 +122,7 @@
     </form>
 </section>
 
-<!-- =============== RECAP =============== -->
+<!-- ================= RECAP ================= -->
 <section class="recap">
 
     <h2>Récapitulatif de commande</h2>
@@ -173,14 +152,17 @@
         </tfoot>
     </table>
 
-    <button id="btn-valider">Valider</button>
-    <button id="btn-reset">Reset</button>
+    <button id="btn-valider">Valider la commande</button>
+    <button id="btn-reset">Réinitialiser</button>
+
+    <p id="message-confirmation"></p>
 
 </section>
 
 </main>
 
-<script src="../js/script.js"></script>
+<!-- JS path -->
+<script src="../script.js"></script>
 
 </body>
 </html>
