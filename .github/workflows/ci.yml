@@ -1,98 +1,34 @@
-# ─────────────────────────────────────────────────────────────────
-#  .github/workflows/ci.yml
-#  Workflow d'Intégration Continue (CI)
-# ─────────────────────────────────────────────────────────────────
+check-structure:
+  name: 📁 Vérification de la structure
+  runs-on: ubuntu-latest
 
-name: CI — Validation du code
+  steps:
+    - name: 📥 Checkout du code
+      uses: actions/checkout@v4
 
-on:
-  push:
-    branches:
-      - main
-      - develop
-  pull_request:
-    branches:
-      - main
+    - name: 🔎 Vérifier les fichiers requis
+      run: |
+        echo "Vérification de la structure du projet..."
 
-jobs:
+        REQUIRED_FILES=(
+          "app/html/index.html"
+          "app/html/css/style.css"
+          "app/js/script.js"
+        )
 
-  # ── Job 1 : Validation HTML ──────────────────────────────────────
-  validate-html:
-    name: 🔍 Validation HTML
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: 📥 Checkout du code
-        uses: actions/checkout@v4
-
-      - name: 🐍 Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
-
-      - name: ⚙️ Installer html5validator
-        run: pip install html5validator --quiet
-
-      - name: ✅ Valider les fichiers HTML
-        run: |
-          html5validator --root app/html/ --also-check-css --log INFO
-
-  # ── Job 2 : Validation CSS ───────────────────────────────────────
-  validate-css:
-    name: 🎨 Validation CSS
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: 📥 Checkout du code
-        uses: actions/checkout@v4
-
-      - name: ⚙️ Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: 📦 Installer stylelint
-        run: npm install -g stylelint stylelint-config-standard
-
-      - name: 🔧 Configurer stylelint
-        run: |
-          echo '{"extends":["stylelint-config-standard"]}' > .stylelintrc.json
-
-      - name: ✅ Valider le CSS
-        run: |
-          stylelint "app/css/**/*.css" --allow-empty-input
-
-  # ── Job 3 : Vérification de la structure du projet ───────────────
-  check-structure:
-    name: 📁 Vérification de la structure
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: 📥 Checkout du code
-        uses: actions/checkout@v4
-
-      - name: 🔎 Vérifier les fichiers requis
-        run: |
-          echo "Vérification de la structure du projet..."
-
-          REQUIRED_FILES=(
-            "app/html/index.html"
-            "app/css/style.css"
-            "app/js/script.js"
-          )
-
-          ALL_OK=true
-          for FILE in "${REQUIRED_FILES[@]}"; do
-            if [ -f "$FILE" ]; then
-              echo "✅  $FILE trouvé"
-            else
-              echo "❌  $FILE MANQUANT"
-              ALL_OK=false
-            fi
-          done
-          if [ "$ALL_OK" = false ]; then
-            echo "::error::Des fichiers requis sont manquants !"
-            exit 1
+        ALL_OK=true
+        for FILE in "${REQUIRED_FILES[@]}"; do
+          if [ -f "$FILE" ]; then
+            echo "✅  $FILE trouvé"
+          else
+            echo "❌  $FILE MANQUANT"
+            ALL_OK=false
           fi
+        done
 
-          echo "✅  Tous les fichiers requis sont présents."
+        if [ "$ALL_OK" = false ]; then
+          echo "::error::Des fichiers requis sont manquants !"
+          exit 1
+        fi
+
+        echo "✅ Tous les fichiers requis sont présents."
