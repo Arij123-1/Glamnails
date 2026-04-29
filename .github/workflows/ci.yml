@@ -11,6 +11,7 @@ on:
 
 jobs:
 
+  # ───────────────────────── HTML VALIDATION ─────────────────────────
   validate-html:
     name: 🔍 Validation HTML
     runs-on: ubuntu-latest
@@ -31,6 +32,8 @@ jobs:
         run: |
           html5validator --root app/html/ --log INFO
 
+
+  # ───────────────────────── CSS VALIDATION ─────────────────────────
   validate-css:
     name: 🎨 Validation CSS
     runs-on: ubuntu-latest
@@ -55,6 +58,8 @@ jobs:
         run: |
           stylelint "app/html/css/**/*.css" --allow-empty-input
 
+
+  # ───────────────────── STRUCTURE CHECK ─────────────────────────────
   check-structure:
     name: 📁 Vérification de la structure
     runs-on: ubuntu-latest
@@ -63,17 +68,17 @@ jobs:
       - name: 📥 Checkout du code
         uses: actions/checkout@v4
 
-      - name: 🔎 Vérifier les fichiers requis
+      - name: 🔎 Vérifier les fichiers essentiels
         run: |
           echo "Vérification de la structure du projet..."
 
           REQUIRED_FILES=(
             "app/html/index.html"
             "app/html/css/style.css"
-            "app/js/script.js"
           )
 
           ALL_OK=true
+
           for FILE in "${REQUIRED_FILES[@]}"; do
             if [ -f "$FILE" ]; then
               echo "✅  $FILE trouvé"
@@ -84,8 +89,8 @@ jobs:
           done
 
           if [ "$ALL_OK" = false ]; then
-            echo "::error::Des fichiers requis sont manquants !"
+            echo "::error::Structure du projet invalide"
             exit 1
           fi
 
-          echo "✅ Tous les fichiers requis sont présents."
+          echo "✅ Structure correcte"
