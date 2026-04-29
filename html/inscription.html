@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlamNails - Réservation</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>💅 GlamNails</h1>
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="inscription.html" class="active">S'inscrire</a>
+        <a href="produits.html">Produits</a>
+    </nav>
+</header>
+
+<section class="form-section">
+    <h2>Formulaire de Réservation</h2>
+
+    <form id="reservationForm">
+        
+        <label for="nom">Nom complet :</label>
+        <input type="text" id="nom" name="nom" required placeholder="Votre nom">
+
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required placeholder="exemple@email.com">
+
+        <label for="tel">Téléphone :</label>
+        <input type="tel" id="tel" name="tel" required placeholder="12345678">
+
+        <label for="service">Service :</label>
+        <select id="service" name="service" required>
+            <option value="">-- Choisir un service --</option>
+            <option>Manucure Classique</option>
+            <option>Ongles en Gel</option>
+            <option>Pédicure</option>
+            <option>Nail Art</option>
+        </select>
+
+        <label for="date">Date :</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="heure">Heure :</label>
+        <input type="time" id="heure" name="heure" required>
+
+        <button type="submit" class="btn">Envoyer</button>
+    </form>
+</section>
+<label for="mdp">Mot de passe :</label>
+<input type="password" id="mdp" name="mdp" required>
+<small>Doit contenir au minimum 6 caractères.</small>
+<hr>
+
+<label for="conf_mdp">Confirmer le mot de passe :</label>
+<input type="password" id="conf_mdp" name="conf_mdp" required>
+<footer class="footer">
+    <div class="footer-bloc">
+        <div class="footer-col">
+            <h3>Contact</h3>
+            <p><a href="tel:+21624254112">+216 24 254 112</a></p>
+            <p>Ennaser 2, Ariana</p>
+        </div>
+        <div class="footer-col">
+            <h3>Email & Réseaux</h3>
+            <p><a href="mailto:glamnails@email.com">glamnails@email.com</a></p>
+            <p><a href="https://instagram.com/glamnails" target="_blank" rel="noopener noreferrer">@glamnails</a></p>
+        </div>
+        <div class="footer-col">
+            <h3>Navigation</h3>
+            <p><a href="index.html">Accueil</a></p>
+            <p><a href="inscription.html">Inscription</a></p>
+            <p><a href="services.html">Services & Réservations</a></p>
+        </div>
+    </div>
+    <p class="footer-copy">© 2025 GlamNails — Tous droits réservés</p>
+</footer>
+<!-- trigger update -->
+<script src="../js/test.js"></script>
+
+
+
+</body>
+</html>

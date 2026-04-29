@@ -1,0 +1,252 @@
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #F3E9FF;
+}
+
+header {
+  background-color: #DDA0DD;
+  padding: 20px;
+  text-align: center;
+}
+header h1 {
+  color: white;
+  margin: 0;
+}
+.nav-menu {
+  margin-top: 10px;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.nav-menu a:hover {
+  text-decoration: underline;
+  color: #ffe6ff;
+}
+
+.section-produits,
+.recap {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 20px 25px 30px;
+  background-color: #F5ECFF;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.section-produits h2,
+.recap h2 {
+  text-align: center;
+  color: #C71585;
+  margin-bottom: 10px;
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.produits-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.produit-card {
+  width: 260px;
+  text-align: center;
+  font-size: 14px;
+  background-color: #FFF;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* image */
+
+.produit-image-container {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.produit-image-container img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  display: block;
+}
+
+.produit-card h3 {
+  margin: 8px 0 3px;
+  color: #333;
+  font-size: 15px;
+}
+
+.ref {
+  margin: 0;
+  color: #777;
+  font-size: 12px;
+}
+
+.desc-produit {
+  margin: 5px 0;
+  font-size: 13px;
+  color: #555;
+}
+
+.prix-produit {
+  margin: 5px 0 8px;
+  font-weight: bold;
+  color: #C71585;
+}
+
+.commande-ligne {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.commande-ligne input[type="number"] {
+  width: 60px;
+  padding: 4px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.btn-ajouter {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #C71585;
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.btn-ajouter:hover {
+  background-color: #a3116c;
+}
+
+.table-recap {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+.table-recap th,
+.table-recap td {
+  border: 1px solid #E0C4F5;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.table-recap th {
+  background-color: #F2D4FF;
+  color: #5A2A82;
+}
+
+.table-recap td {
+  text-align: center;
+}
+
+.ligne-vide td {
+  font-style: italic;
+  color: #777;
+}
+
+.recap-quantite {
+  width: 60px;
+  padding: 4px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.btn-supprimer {
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: none;
+  background-color: #e53935;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.btn-supprimer:hover {
+  background-color: #c62828;
+}
+
+.libelle-total {
+  text-align: right;
+  font-weight: bold;
+}
+
+.valeur-total {
+  text-align: left;
+  font-weight: bold;
+}
+
+.valeur-total span {
+  color: #C71585;
+}
+
+.recap-actions {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.btn-commande {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: none;
+  background-color: #C71585;
+  color: white;
+  cursor: pointer;
+  margin: 0 5px;
+  font-weight: bold;
+}
+
+.btn-secondaire {
+  background-color: #888;
+}
+
+.btn-commande:hover {
+  opacity: 0.9;
+}
+
+.message-confirmation {
+  margin-top: 10px;
+  text-align: center;
+  font-weight: bold;
+  color: #2e7d32; 
+}
+
+
+
+@media (max-width: 768px) {
+  .produit-card {
+    width: 90%;
+  }
+
+  .commande-ligne {
+    flex-direction: column;
+  }
+
+  .section-produits,
+  .recap {
+    margin: 15px;
+    padding: 15px;
+  }
+}
