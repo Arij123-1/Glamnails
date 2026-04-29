@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -10,10 +9,12 @@ header {
   padding: 20px;
   text-align: center;
 }
+
 header h1 {
   color: white;
   margin: 0;
 }
+
 .nav-menu {
   margin-top: 10px;
 }
@@ -38,7 +39,7 @@ header h1 {
   padding: 20px 25px 30px;
   background-color: #F5ECFF;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
 }
 
 .section-produits h2,
@@ -67,7 +68,7 @@ header h1 {
   background-color: #FFF;
   border-radius: 12px;
   padding: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
 }
 
 /* image */
@@ -230,12 +231,12 @@ header h1 {
   margin-top: 10px;
   text-align: center;
   font-weight: bold;
-  color: #2e7d32; 
+  color: #2e7d32;
 }
 
+/* ===== MEDIA QUERY FIXED ===== */
 
-
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .produit-card {
     width: 90%;
   }
