@@ -1,15 +1,18 @@
 FROM nginx:alpine
 
-# 1. Copy everything from your GlamNails folder to the container
+# Copy everything from html (includes CSS + HTML)
 COPY app/html /usr/share/nginx/html
-COPY app/css /usr/share/nginx/html/css
+
+# Copy JS
 COPY app/js /usr/share/nginx/html/js
+
+# Copy images
 COPY app/images /usr/share/nginx/html/images
 
-# 2. Overwrite the default Nginx config with yours
+# Nginx config
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# 3. Fix permissions so Alpine/Nginx can access the files
+# Permissions
 RUN chmod -R 755 /usr/share/nginx/html
 
 EXPOSE 80
