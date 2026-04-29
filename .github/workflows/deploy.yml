@@ -25,4 +25,8 @@ jobs:
           path: ./app/html
 
       - name: Deploy to GitHub Pages
+<<<<<<< HEAD
         uses: actions/deploy-pages@v4
+=======
+        uses: actions/deploy-pages@v4
+>>>>>>> 47c464b933e5b949f68a8098fad15d4b793f2265
