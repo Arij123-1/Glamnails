@@ -14,9 +14,6 @@ jobs:
     name: 🚀 Deploy to GitHub Pages
     runs-on: ubuntu-latest
 
-    # ✅ Wait for CI Docker job to succeed
-    needs: docker-build
-
     steps:
       - name: 📥 Checkout code
         uses: actions/checkout@v4
