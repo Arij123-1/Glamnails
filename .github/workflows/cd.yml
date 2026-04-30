@@ -1,52 +1,38 @@
-# ─────────────────────────────────────────────────────────────────
-#  .github/workflows/cd.yml
-#  Workflow de Déploiement Continu (CD)
-#
-#  Ce workflow s'exécute UNIQUEMENT après que la CI ait réussi,
-#  et seulement sur la branche main (push direct ou merge de PR).
-#
-#  Il déploie automatiquement le site sur GitHub Pages.
-#
-#  Prérequis :
-#    1. Aller dans Settings → Pages → Source → "GitHub Actions"
-#    2. Le dépôt doit être public (ou GitHub Pro pour les privés)
-# ─────────────────────────────────────────────────────────────────
-name: CD — Build & Test Docker
+name: CD — Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main   # deploy only when code is pushed to main
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-  build-and-run:
-    name: 🐳 Build & Run Docker
+  deploy:
+    name: 🚀 Deploy to GitHub Pages
     runs-on: ubuntu-latest
 
+    # ✅ Wait for CI Docker job to succeed
+    needs: docker-build
+
     steps:
-      # 1. Get code
-      - name: 📥 Checkout du code
+      - name: 📥 Checkout code
         uses: actions/checkout@v4
 
-      # 2. Build Docker image
-      - name: 🐳 Build Docker image
+      - name: ⚙️ Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: 📁 Prepare deployment folder
         run: |
-          docker build -t glamnails-app .
+          mkdir -p public
+          cp -r app/html/. public/
 
-      # 3. Run container
-      - name: ▶️ Run container
-        run: |
-          docker run -d -p 8080:80 --name test-container glamnails-app
+      - name: 📦 Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
 
-      # 4. Wait a bit for server to start
-      - name: ⏳ Wait for server
-        run: sleep 5
-
-      # 5. Test if site is accessible
-      - name: 🌐 Test website
-        run: |
-          curl -f http://localhost:8080 || exit 1
-
-      # 6. Stop container
-      - name: 🛑 Stop container
-        run: docker stop test-container
+      - name: 🚀 Deploy site
+        uses: actions/deploy-pages@v4
