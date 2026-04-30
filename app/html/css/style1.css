@@ -32,6 +32,7 @@ header h1 {
   color: #ffe6ff;
 }
 
+/* Sections */
 .section-produits,
 .recap {
   max-width: 1200px;
@@ -54,13 +55,16 @@ header h1 {
   margin-bottom: 20px;
 }
 
+/* Products grid */
 .produits-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 25px;
+  align-items: stretch;
 }
 
+/* Product card */
 .produit-card {
   width: 260px;
   text-align: center;
@@ -71,8 +75,7 @@ header h1 {
   box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
 }
 
-/* image */
-
+/* Image */
 .produit-image-container {
   position: relative;
   border-radius: 12px;
@@ -87,6 +90,7 @@ header h1 {
   display: block;
 }
 
+/* Text */
 .produit-card h3 {
   margin: 8px 0 3px;
   color: #333;
@@ -111,6 +115,7 @@ header h1 {
   color: #C71585;
 }
 
+/* Order row */
 .commande-ligne {
   display: flex;
   justify-content: center;
@@ -126,6 +131,7 @@ header h1 {
   border: 1px solid #ccc;
 }
 
+/* Buttons */
 .btn-ajouter {
   padding: 6px 12px;
   border-radius: 8px;
@@ -141,6 +147,7 @@ header h1 {
   background-color: #a3116c;
 }
 
+/* Table recap */
 .table-recap {
   width: 100%;
   border-collapse: collapse;
@@ -168,6 +175,7 @@ header h1 {
   color: #777;
 }
 
+/* Inputs */
 .recap-quantite {
   width: 60px;
   padding: 4px;
@@ -175,6 +183,7 @@ header h1 {
   border: 1px solid #ccc;
 }
 
+/* Delete button */
 .btn-supprimer {
   padding: 4px 8px;
   border-radius: 6px;
@@ -189,6 +198,7 @@ header h1 {
   background-color: #c62828;
 }
 
+/* Total */
 .libelle-total {
   text-align: right;
   font-weight: bold;
@@ -203,6 +213,7 @@ header h1 {
   color: #C71585;
 }
 
+/* Actions */
 .recap-actions {
   text-align: center;
   margin-top: 15px;
@@ -234,9 +245,8 @@ header h1 {
   color: #2e7d32;
 }
 
-/* ===== MEDIA QUERY FIXED ===== */
-
-@media (width <= 768px) {
+/* RESPONSIVE FIX (correct version) */
+@media (max-width: 768px) {
   .produit-card {
     width: 90%;
   }
@@ -249,5 +259,11 @@ header h1 {
   .recap {
     margin: 15px;
     padding: 15px;
+  }
+
+  .nav-menu a {
+    display: inline-block;
+    margin: 8px;
+    font-size: 16px;
   }
 }
